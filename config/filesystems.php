@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,12 +64,12 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
-        'admin' => [
-            'driver' => 'local',
-            'root' => public_path('upload'),
-            'visibility' => 'public',
-            'url' => env('APP_URL') . '/upload/',
-        ],
+//        'admin' => [
+//            'driver' => 'local',
+//            'root' => public_path('upload'),
+//            'visibility' => 'public',
+//            'url' => env('APP_URL') . '/upload/',
+//        ],
 
     ],
 
