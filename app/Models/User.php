@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Requests\Request;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -42,5 +43,15 @@ class User extends Authenticatable
     public function addresses()
     {
         return $this->hasMany(UserAddress::class);
+    }
+
+    /*
+     * 收藏商品
+     */
+    public function favoriteProducts()
+    {
+        return $this->belongsToMany(Product::class,'user_favorite_products')
+            ->withTimestamps()
+            ->orderBy('user_favorite_products.created_at','desc');
     }
 }
