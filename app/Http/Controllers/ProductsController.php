@@ -82,4 +82,13 @@ class ProductsController extends Controller
         $user->favoriteProducts()->detach($product);
         return [];
     }
+
+    /*
+     * 商品收藏列表
+     */
+    public function favorites(Request $request)
+    {
+        $products = $request->user()->favoriteProducts()->paginate(16);
+        return view('products.favorites',['products'=>$products]);
+    }
 }
