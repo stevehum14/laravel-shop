@@ -15928,6 +15928,11 @@ body {
   vertical-align: middle;
 }
 
+.orders-show-page .payment-buttons {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
 .orders-show-page .product-info {
   display: flex;
   flex-direction: row;
