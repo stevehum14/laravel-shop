@@ -55,6 +55,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
     Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
 
+    Route::post('orders/{order}/received','OrdersController@received')->name('orders.received');
+
 //    Route::get('alipay', function() {
 //        return app('alipay')->web([
 //            'out_trade_no' => time(),
