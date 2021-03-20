@@ -55,7 +55,12 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('payment/{order}/wechat', 'PaymentController@payByWechat')->name('payment.wechat');
     Route::post('payment/wechat/notify', 'PaymentController@wechatNotify')->name('payment.wechat.notify');
 
+    //确认收货
     Route::post('orders/{order}/received','OrdersController@received')->name('orders.received');
+    //评价页面
+    Route::get('orders/{order}/review','OrdersController@review')->name('orders.review.show');
+    //提交评价
+    Route::post('orders/{order}/review','OrdersController@sendReview')->name('orders.review.store');
 
 //    Route::get('alipay', function() {
 //        return app('alipay')->web([
