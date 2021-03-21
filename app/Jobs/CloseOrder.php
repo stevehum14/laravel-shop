@@ -30,6 +30,9 @@ class CloseOrder implements ShouldQueue
     // 当队列处理器从队列中取出任务时，会调用 handle() 方法
     public function handle()
     {
+        if($this->order->paid_at){
+            return;
+        }
         // 判断对应的订单是否已经被支付
         // 如果已经支付则不需要关闭订单，直接退出
         \DB::transaction(function(){
@@ -39,6 +42,9 @@ class CloseOrder implements ShouldQueue
             foreach ($this->order->items as $item){
                 $item->productSku->addStock($item->amount);
             }
+            if($this->order->couponCode){
+                $this->order->couponCode()->changeUsed(false);
+            };
         });
     }
 }
