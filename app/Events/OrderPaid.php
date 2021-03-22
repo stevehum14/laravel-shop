@@ -14,6 +14,7 @@ use Illuminate\Queue\SerializesModels;
 class OrderPaid
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+    protected $order;
 
     /**
      * Create a new event instance.
