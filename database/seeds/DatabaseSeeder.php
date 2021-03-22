@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // 放在 ProductsSeeder 之前
+        $this->call(CategoriesSeeder::class);
+        $this->call(ProductsSeeder::class);
     }
 }

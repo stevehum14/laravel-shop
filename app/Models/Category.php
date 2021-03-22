@@ -26,7 +26,7 @@ class Category extends Model
                 // 将层级设为父类目的层级 + 1
                 $category->level = $category->parent->level + 1;
                 // 将 path 值设为父类目的 path 追加父类目 id 以及最后跟上一个 - 分隔符
-                $category->path = $category->parent()->path.$category->parent_id.'-';
+                $category->path = $category->parent->path.$category->parent_id.'-';
             }
         });
     }
