@@ -72,6 +72,8 @@ Route::group(['middleware'=>['auth']],function(){
 //            'subject' => 'test subject - 测试',
 //        ]);
 //    });
+    // 众筹商品下单
+    Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
 
 });
 Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('payment.alipay.notify');
