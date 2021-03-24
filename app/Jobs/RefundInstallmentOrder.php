@@ -111,5 +111,4 @@ class RefundInstallmentOrder implements ShouldQueue
                 break;
         }
     }
-    }
 }
