@@ -11,7 +11,7 @@
                             <img class="cover" src="{{ $product->image_url }}" alt="">
                         </div>
                         <div class="col-7">
-                            <div class="title">{{ $product->title }}</div>
+                            <div class="title">{{ $product->long_title ?: $product->title }}</div>
                             <!-- 众筹商品模块开始 -->
                             @if($product->type === \App\Models\Product::TYPE_CROWDFUNDING)
                                 <div class="crowdfunding-info">
@@ -112,7 +112,7 @@
                                 <div class="properties-list">
                                     <div class="properties-list-title">产品参数：</div>
                                     <ul class="properties-list-body">
-                                        @foreach($product->properties as $property)
+                                        @foreach($product->grouped_properties as $name => $values)
                                             <li>{{ $name }}：{{ join(' ', $values) }}</li>
                                         @endforeach
                                     </ul>

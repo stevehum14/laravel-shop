@@ -30,5 +30,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'review_count' => 0,
         'price'        => 0,
         'category_id'  => $category ? $category->id : null,
+        'title'        => $faker->word,
+        'long_title'   => $faker->sentence,
     ];
 });
