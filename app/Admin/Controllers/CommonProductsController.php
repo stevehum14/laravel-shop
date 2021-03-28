@@ -70,10 +70,10 @@ abstract class CommonProductsController extends AdminController
         $form->saving(function (Form $form) {
             $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price') ?: 0;
         });
-//        $form->saved(function(Form $form){
-//            $product = $form->model();
-//            dispatch(new SyncOneProductToES($product));
-//        });
+        $form->saved(function(Form $form){
+            $product = $form->model();
+            dispatch(new SyncOneProductToES($product));
+        });
 
         return $form;
     }
